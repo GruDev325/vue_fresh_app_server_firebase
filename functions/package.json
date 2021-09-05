@@ -1,0 +1,59 @@
+{
+  "name": "node-server-boilerplate",
+  "version": "1.0.0",
+  "description": "Analytics And Ads Data Consumer App",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "nodemon --watch 'src/**/**/*.ts' --exec ts-node src/server.ts",
+    "build": "tsc",
+    "start": "rimraf -rf dist/* && tsc && node dist/server.js",
+    "watch": "tsc-watch --onSuccess \"tsc\"  --onFailure \"tsc && echo Compilation Failed\"",
+    "test": "tsc && mocha dist/**/*.spec.js",
+    "lint": "eslint src --ext ts",
+    "lint-fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "cleanup": "rimraf dist/*",
+    "rebuild": "rimraf node_module && yarn install && yarn build"
+  },
+  "keywords": [],
+  "author": "Trevier Gittens",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.4",
+    "@types/node": "^13.11.0",
+    "@types/pg": "^7.14.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "pg": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.10",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-promise": "3.5.0",
+    "husky": "^4.2.5",
+    "mocha": "3.4.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "supertest": "^4.0.2",
+    "ts-node": "^8.8.2",
+    "tsc-watch": "^4.0.0",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint"
+    }
+  }
+}

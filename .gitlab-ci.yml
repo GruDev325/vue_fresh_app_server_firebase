@@ -1,0 +1,18 @@
+image: node
+
+# And to cache them as well.
+cache:
+    paths:
+        - node_modules/
+        - .yarn
+
+stages:
+    - lint
+
+eslint:
+    stage: lint
+    script:
+        # Install eslint
+        - yarn add eslint @typescript-eslint/eslint-plugin eslint-plugin-jest eslint-config-prettier eslint-plugin-prettier prettier
+        # Run eslint
+        - yarn lint
